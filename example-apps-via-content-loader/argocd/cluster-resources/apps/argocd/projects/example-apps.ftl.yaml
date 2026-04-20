@@ -13,7 +13,6 @@ spec:
     server: https://kubernetes.default.svc
   sourceRepos:
   - ${scm.repoUrl}argocd/example-apps.git
-  - ${scm.repoUrl}argocd/nginx-helm-umbrella.git
   
   
   # allow to only see application resources from the specified namespace
