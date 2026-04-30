@@ -27,8 +27,8 @@ config:
         targetRef: main
         overwriteMode: UPGRADE
         createJenkinsJob: true
-      - url: https://github.com/cloudogu/gitops-playground
-        path: examples/example-apps-via-content-loader/
+      - url: https://github.com/cloudogu/gitops-examples
+        path: example-apps-via-content-loader/
         ref: main
         templating: true
         type: FOLDER_BASED
