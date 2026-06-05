@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: example-apps
+  namespace: ${config.application.namePrefix}${config.application.namespace}
+  annotations:
+spec:
+  description: Contains examples of end-user applications
+  destinations:
+  - namespace: ${config.application.namePrefix}${config.application.namespace}
+    server: https://kubernetes.default.svc
+  - namespace: ${config.application.namePrefix}${config.application.namespace}
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - ${scm.repoUrl}argocd/example-apps.git
+  
+  
+  # allow to only see application resources from the specified namespace
+  sourceNamespaces:
+    - ${config.application.namePrefix}${config.application.namespace}
+
+
+  # Allow all namespaced-scoped resources to be created
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+
+  # Deny all cluster-scoped resources from being created. Least privilege.
+  clusterResourceWhitelist:
