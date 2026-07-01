@@ -28,4 +28,4 @@ spec:
       kind: '*'
 
   # Deny all cluster-scoped resources from being created. Least privilege.
-  clusterResourceWhitelist:
+  clusterResourceWhitelist: [ ]
