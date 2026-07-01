@@ -5,9 +5,9 @@ service:
 ingress:
   hosts:
     <#if config.application.urlSeparatorHyphen>
-    - host: staging-petclinic-helm-${config.content.variables.petclinic.baseDomain}
+    - host: staging-petclinic-helm-${config.content.variables.petclinic.baseDomain}.${config.application.baseUrl}
     <#else>
-    - host: staging.petclinic-helm.${config.content.variables.petclinic.baseDomain}
+    - host: staging.petclinic-helm.${config.content.variables.petclinic.baseDomain}.${config.application.baseUrl}
     </#if>
       paths: ['/']
 </#if>

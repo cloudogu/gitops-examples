@@ -8,9 +8,9 @@ metadata:
 spec:
   rules:
     <#if config.application.urlSeparatorHyphen>
-    - host: staging-petclinic-plain-${config.content.variables.petclinic.baseDomain}
+    - host: staging-petclinic-plain-${config.content.variables.petclinic.baseDomain}-${config.application.baseUrl}
     <#else>
-    - host: staging.petclinic-plain.${config.content.variables.petclinic.baseDomain}
+    - host: staging.petclinic-plain.${config.content.variables.petclinic.baseDomain}.${config.application.baseUrl}
     </#if>
       http:
         paths:
