@@ -7,10 +7,11 @@ metadata:
     app: spring-petclinic-plain
 spec:
   rules:
+    <#assign myUrl = "${config.application.baseUrl}">
     <#if config.application.urlSeparatorHyphen>
-    - host: staging-petclinic-plain-${config.content.variables.petclinic.baseDomain}
+    - host: staging-petclinic-plain-${config.content.variables.petclinic.baseDomain}-${myUrl?keep_after("://")}
     <#else>
-    - host: staging.petclinic-plain.${config.content.variables.petclinic.baseDomain}
+    - host: staging.petclinic-plain.${config.content.variables.petclinic.baseDomain}.${myUrl?keep_after("://")}
     </#if>
       http:
         paths:
