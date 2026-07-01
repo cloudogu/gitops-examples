@@ -4,10 +4,11 @@ service:
 <#if config.content.variables.petclinic.baseDomain?has_content>
 ingress:
   hosts:
+    <#assign myUrl = "${config.application.baseUrl}">
     <#if config.application.urlSeparatorHyphen>
-    - host: production-petclinic-helm-${config.content.variables.petclinic.baseDomain}.${config.application.baseUrl}
+    - host: production-petclinic-helm-${config.content.variables.petclinic.baseDomain}-${myUrl?keep_after("://")}
     <#else>
-    - host: production.petclinic-helm.${config.content.variables.petclinic.baseDomain}.${config.application.baseUrl}
+    - host: production.petclinic-helm.${config.content.variables.petclinic.baseDomain}.${myUrl?keep_after("://")}
     </#if>
       paths: ['/']
 </#if>
