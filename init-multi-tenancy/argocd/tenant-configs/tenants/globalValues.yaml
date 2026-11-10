@@ -1,5 +1,3 @@
-image:
-  tag: c08655a7
 config:
   application:
     baseUrl: "http://localhost"
